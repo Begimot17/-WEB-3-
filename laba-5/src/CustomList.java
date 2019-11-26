@@ -1,4 +1,9 @@
 import java.lang.reflect.Array;
+class CustomException  extends RuntimeException {
+    public CustomException(String errorMessage) {
+        super(errorMessage);
+    }
+}
 
 public class CustomList<T> implements ICustomList<T> {
 
@@ -9,6 +14,8 @@ public class CustomList<T> implements ICustomList<T> {
     private int index=0;
 
     private int size;
+
+
 
     public CustomList(){
         this.data=(T[])new Object[SIZE_FACTOR];
@@ -35,7 +42,7 @@ public class CustomList<T> implements ICustomList<T> {
     }
 
     @Override
-    public void Remove(T elem) throws Exception {
+    public void Remove(T elem) throws CustomException {
         var isHave=false;
         for(int x=0; x<this.data.length-1;x++){
             if (elem ==data[x]||isHave)
@@ -48,16 +55,16 @@ public class CustomList<T> implements ICustomList<T> {
             this.index--;
             return;
         }
-        throw new Exception("NoSuchItem");
+        throw new CustomException("NoSuchItem");
     }
 
     @Override
-    public void  RemoveByIndex(Integer index) throws RuntimeException {
+    public void  RemoveByIndex(Integer index) throws CustomException {
         if(index>this.index-1){
-            throw new RuntimeException("ArrayIndexOutOfBound");
+            throw new CustomException("ArrayIndexOutOfBound");
         }
         if(index<0){
-            throw new RuntimeException("Negative Value");
+            throw new CustomException("Negative Value");
         }
         for(int x=index; x<this.data.length-1;x++){
             data[x]=data[x+1];
@@ -67,17 +74,17 @@ public class CustomList<T> implements ICustomList<T> {
     }
 
     @Override
-    public T Get(Integer index) throws RuntimeException {
+    public T Get(Integer index) throws CustomException {
         try {
         if(index>this.index-1){
-            throw new RuntimeException("ArrayIndexOutOfBound");
+            throw new CustomException("ArrayIndexOutOfBound");
         }
         if(index<0){
-            throw new RuntimeException("Negative Value");
+            throw new CustomException("Negative Value");
         }
         return this.data[index];
         }
-        catch (RuntimeException ex) {
+        catch (CustomException ex) {
             System.out.println(ex.getMessage());
             return null;
         }
