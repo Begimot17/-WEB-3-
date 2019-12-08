@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>&#x1f64fПоставьте 4&#x1f64f</title>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style3.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/night.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="js/parallaxsoon.js" type="text/javascript"></script>
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+
+<body>
+    <canvas id="pixie"></canvas>
+    <div class="container">
+        <section>
+            <div id="container_demo">
+                <a class="hiddenanchor" id="toregister"></a>
+                <a class="hiddenanchor" id="tologin"></a>
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        <form action="autorize" autocomplete="on">
+                            <h1>Log in</h1>
+                            <p>
+                                <label for="username" class="uname" data-icon="u"> Your login</label>
+                                <input id="username" name="login" required="required" type="text" placeholder="myname1" />
+                            </p>
+                            <p>
+                                <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+                                <input id="password" name="password" required="required" type="password" placeholder="например 123456" />
+                            </p>
+                            <p class="login button">
+                                <input type="submit" value="Log in" />
+                            </p>
+                            <p class="change_link">
+                                Not a member yet?
+                                <a href="#toregister" class="to_register">Register</a>
+                            </p>
+                        </form>
+                    </div>
+
+                    <div id="register" class="animate form">
+                        <form action="register" autocomplete="on">
+                            <h1> Register </h1>
+                            <p>
+                                <label for="usernamesignup" class="uname" data-icon="u">Your login</label>
+                                <input id="usernamesignup" name="login" required="required" type="text" placeholder="myname1" />
+                            </p>
+                            <p>
+                                <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                                <input id="passwordsignup" name="password" required="required" type="password" placeholder="123456" />
+                            </p>
+                            <p class="signin button">
+                                <input type="submit" value="Register" />
+                            </p>
+                            <p class="change_link">
+                                Already registered?
+                                <a href="#tologin" class="to_register"> Log in </a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+
+</html>
