@@ -2,45 +2,25 @@ const express = require('express');
 const app = express();
 const path = require("path");
 const crypto = require('crypto');
-const Sequelize = require('sequelize');
 var cookieParser = require('cookie-parser')
 var passport = require('passport');
-
+const {User} = require('./models');
 app.use(cookieParser())
 app.use(passport.initialize());
 app.use(passport.session());
 
-var sequelize = new Sequelize('WEBTEX', 'root', '', {
-    dialect: 'mysql'
-});
+
 
 function crypt(password) {
     return crypto.createHash('sha256').update(password).digest('base64');
 }
 
-var User = sequelize.define('user', {
-    Id: {
-        field: 'Id',
-        type: Sequelize.INTEGER,
-        primaryKey: true
-    },
-    Login: {
-        field: 'Login',
-        type: Sequelize.STRING
-    },
-    Password: {
-        field: 'Password',
-        type: Sequelize.STRING
-    }
-});
 
 User.findAll().then((users) => {
     console.log(users);
 });
 
-sequelize.authenticate()
-    .then(() => console.log('Connected.'))
-    .catch(err => console.error('Connection error: ', err));
+
 
 app.get('/css/animate-custom.css', function (req, res) {
     res.sendFile(__dirname + "/View" + "/css/animate-custom.css");
